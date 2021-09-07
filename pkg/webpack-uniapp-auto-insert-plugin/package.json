@@ -1,0 +1,14 @@
+{
+  "name": "webpack-uniapp-auto-insert-plugin",
+  "version": "1.0.0",
+  "description": "基于uni-app的骨架屏自动注入",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "dragonchen",
+  "license": "ISC"
+}
