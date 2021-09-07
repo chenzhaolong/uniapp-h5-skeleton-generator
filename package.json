@@ -1,0 +1,15 @@
+{
+  "name": "uniapp-h5-skeleton-generator",
+  "version": "1.0.0",
+  "description": "基于uniapp在h5端的骨架屏生成器",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/zhao_long_chen/uniapp-h5-skeleton-generator.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
