@@ -3,7 +3,11 @@
 */
 
 class AutoWatchPlugin {
+    constructor(options) {
 
+    }
+
+    apply(compiler) {}
 }
 
 module.exports = {
