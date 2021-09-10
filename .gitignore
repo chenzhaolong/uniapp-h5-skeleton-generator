@@ -105,3 +105,5 @@ dist
 
 .DS_Store
 pkg/.DS_Store
+
+example/node_modules/
