@@ -10,17 +10,43 @@ class AutoWatchPlugin {
     }
 
     apply(compiler) {
-        if (!this.watchDir && !this.watchFiles) {
+        if (!this.watchDir && this.watchFiles.length === 0) {
             this.error('watchDir or watchFiles is wrong in UniAppInsertSkeletonPlugin');
         }
 
         compiler.hooks.watchRun.tapAsync('watchRun', (watch, cb) => {
             let filesChange = watch.compiler.watchFileSystem.watcher.mtimes;
+
+            if (filesChange.length === 0) {
+                cb();
+            }
+
+            const hasChange = filesChange.some(file => {
+                if (this.watchDir) {
+                    return file.indexOf(this.watchDir) !== -1;
+                } else {
+                    return this.watchFiles.indexOf(file) !== -1;
+                }
+            });
+
+            if (hasChange) {
+                this.generatorSsrJson(cb);
+            }
         });
     }
 
-    generatorSsrJson() {
-
+    generatorSsrJson(cb) {
+        const exec = child_process.exec;
+        const cmd = 'vue invoke uni-skeleton';
+        
+        exec(cmd, (err) => {
+            if (err) {
+                this.error(err);
+            } else {
+                console.log('serverBundleJson has been update');
+            }
+            cb();
+        })
     }
 
     error(msg) {
